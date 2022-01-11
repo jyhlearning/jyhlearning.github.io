@@ -12,7 +12,7 @@
                 minSize: 10,
                 maxSize: 20,
                 newOn: 1000,
-                flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+                flakeColor: "#FFFFFF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
             },
             options = $.extend({}, defaults, options);
         var interval = setInterval(function () {
@@ -39,10 +39,10 @@
 })(jQuery);
 $(function () {
     $.fn.snow({
-        minSize: 5,
+        minSize: 100,
         /* 定义雪花最小尺寸 */
-        maxSize: 50,
+        maxSize: 100,
         /* 定义雪花最大尺寸 */
-        newOn: 300 /* 定义密集程度，数字越小越密集 */
+        newOn: 600 /* 定义密集程度，数字越小越密集 */
     });
 });
