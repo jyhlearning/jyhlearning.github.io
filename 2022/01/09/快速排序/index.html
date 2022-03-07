@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>高精度减法 | Hexo</title>
+  <title>快速排序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="与加法不同的是，减法多了一个判断大小的代码始终用大的减去小的；">
+  <meta name="description" content="这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高精度减法">
-<meta property="og:url" content="http://example.com/2022/01/30/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95/index.html">
+<meta property="og:title" content="快速排序">
+<meta property="og:url" content="http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="与加法不同的是，减法多了一个判断大小的代码始终用大的减去小的；">
+<meta property="og:description" content="这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-01-30T08:18:37.000Z">
-<meta property="article:modified_time" content="2022-03-07T14:57:56.034Z">
+<meta property="article:published_time" content="2022-01-09T06:40:50.000Z">
+<meta property="article:modified_time" content="2022-03-07T14:59:07.417Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="基础算法">
-<meta property="article:tag" content="高精度算法">
+<meta property="article:tag" content="快速排序">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -173,14 +173,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-高精度减法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      高精度减法
+      快速排序
     </h1>
   
 
@@ -198,27 +198,10 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>与加法不同的是，减法多了一个判断大小的代码<br>始终用大的减去小的；</p>
+        <p>这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。</p>
 <span id="more"></span>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>#include “iostream”<br>using namespace std;</p>
-<p>string add(string a, string b)<br>{<br>    string c;<br>    int t = 0, i = a.size() - 1, j = b.size() - 1;</p>
-<pre><code>while (i &gt;= 0 || j &gt;= 0)
-&#123;
-    t = a[i] - t - &#39;0&#39;;
-    if (j &gt;= 0)t -= (b[j] - &#39;0&#39;);
-    c.push_back((t + 10) % 10 + &#39;0&#39;);
-    if (t &lt; 0)t = 1;
-    else t = 0;
-    i--; j--;
-&#125;
-//去前导零
-while (c.size() &gt; 1 &amp;&amp; c.back() == &#39;0&#39;)c.pop_back();
-
-return c;
-</code></pre>
-<p>}<br>bool cmp(string&amp; a, string&amp; b)<br>{<br>    if (a.size() != b.size())<br>        return a.size() &gt;= b.size();<br>    else<br>        return a &gt;= b;<br>}<br>int main()<br>{<br>    string a, b, c;<br>    cin &gt;&gt; a &gt;&gt; b;<br>    if (cmp(a, b))<br>        c = add(a, b);<br>    else<br>    {<br>        cout &lt;&lt; ‘-‘;<br>        c = add(b, a);<br>    }<br>    for (int i = c.size() - 1; i &gt;= 0; i–)<br>        cout &lt;&lt; c[i];<br>    return 0;<br>}<br>代码中有个操作，是删去前导零，很值得参考学习。要我们删去连续的重复字符串时可以参考。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (c.size() &gt; 1 &amp;&amp; c.back() == <span class="string">&#x27;0&#x27;</span>)c.pop_back();</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/826/">题目讲解链接</a></p>
+<h1 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#include &quot;iostream&quot;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6+10;</span><br><span class="line">int num[N];</span><br><span class="line">void quick_sort(int num[],int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r)<span class="built_in">return</span> ;</span><br><span class="line">    int x=num[l],i=l-1,j=r+1;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++;<span class="keyword">while</span>(num[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j--;<span class="keyword">while</span>(num[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)swap(num[i],num[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(num,l,j);</span><br><span class="line">    quick_sort(num,j+1,r);</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++)</span><br><span class="line">    cin&gt;&gt;num[i];</span><br><span class="line">    quick_sort(num,0,n-1);</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++)</span><br><span class="line">    cout&lt;&lt;<span class="string">&#x27; &#x27;</span>&lt;&lt;<span class="string">num[i];</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/819/">题目讲解链接&gt;&gt;</a></p>
 
       
       
@@ -232,7 +215,7 @@ return c;
                 
                 <br>
                 <strong>本文链接：</strong>
-                http://example.com/2022/01/30/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95/
+                http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/
                 <br>
                 <strong>版权声明：</strong>
                 本作品采用
@@ -300,7 +283,7 @@ return c;
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">高精度算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">快速排序</a>
         		</li>
       		
 		</ul>
@@ -356,7 +339,7 @@ return c;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/30/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,18 +353,18 @@ return c;
   
 <nav id="article-nav">
   
-    <a href="/2022/01/30/%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B9%98%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/01/30/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          高精度乘法
+          归并排序
         
       </div>
     </a>
   
   
-    <a href="/2022/01/30/%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">高精度加法</div>
+    <a href="/2022/01/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
