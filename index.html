@@ -63,8 +63,8 @@
 	        
 			</ul>
 			<nav>
-    <a>总文章数 20</a>
-    <a>总字数 <span class="post-count">10.4k</span></a>
+    <a>总文章数 21</a>
+    <a>总字数 <span class="post-count">11.5k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -167,6 +167,112 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-继承和多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/09/%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/">继承和多态</a>
+    </h1>
+  
+
+            <!-- 添加代码 -->
+    
+
+      </header>
+    
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>Java使用关键字extends来实现继承</p>
+<h2 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h2><p>◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的<br>子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承</p>
+<!---more-->
+<h1 id="重要问题"><a href="#重要问题" class="headerlink" title="重要问题"></a>重要问题</h1><p>1.子类除了继承父亲的属性和操作外，还可以定义自己的属性和操作，也可以对父亲的操作进行重写<br>2.子类并不继承父亲的构造函数</p>
+<h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>在子类中创建一个与父亲相同名称，相同参数列表，相同返回值的方法，只是方法中的实现不同，以实现不同于父类的功能，这种方法被称之为重写。</p>
+<h2 id="方法重写规则"><a href="#方法重写规则" class="headerlink" title="方法重写规则"></a>方法重写规则</h2><p>◼ 子类方法的名称、参数表、返回类型必须与与被重写的方法相同<br>◼ 重写方法的访问权限不能比父类的权限低(public&gt;protected&gt;default&gt;private)★<br>◼ 重写方法一定不能抛出新的非运行时异常或者比被重写方法声明更加宽泛的非运行时异常。<br>◼ private方法、final方法、static方法不能被重写（下页示例）<br>◼ 构造函数不能被重写<br>父类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class animal &#123;</span><br><span class="line">public String name;</span><br><span class="line">public int age;</span><br><span class="line">public String hobby;</span><br><span class="line">public animal(String name,String hobby,int age)</span><br><span class="line">&#123;</span><br><span class="line">	this.name=name;</span><br><span class="line">	this.age=age;</span><br><span class="line">	this.hobby=hobby;</span><br><span class="line">&#125;</span><br><span class="line">public <span class="function"><span class="title">animal</span></span>() &#123;&#125;;</span><br><span class="line">public final void <span class="function"><span class="title">ji</span></span>() &#123;&#125;;</span><br><span class="line">public static void <span class="function"><span class="title">ji1</span></span>() &#123;&#125;;</span><br><span class="line">private void <span class="function"><span class="title">ji2</span></span>() &#123;&#125;;</span><br><span class="line">protected void <span class="function"><span class="title">describe</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(String.valueOf(name+age+hobby));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public class cat extends animal</span><br><span class="line">&#123;</span><br><span class="line">	public cat(String name,String hobby,int age)</span><br><span class="line">	&#123;</span><br><span class="line">		this.age=age;</span><br><span class="line">		this.hobby=hobby;</span><br><span class="line">		this.name=name;</span><br><span class="line">	&#125;</span><br><span class="line">	protected void describe()//方法重写的访问权限不能比父类的权限低。</span><br><span class="line">	&#123;//子类的名称、参数表、返回类型必须和被重写的方法相同</span><br><span class="line">		System.out.println(name+hobby+age+<span class="string">&quot;is cartoon&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	//public void <span class="function"><span class="title">ji</span></span>() &#123;&#125;;//final不允许重写。</span><br><span class="line">	public static void <span class="function"><span class="title">ji1</span></span>() &#123;&#125;;//static不允许被重写，自定义函数可以</span><br><span class="line">	public void <span class="function"><span class="title">ji2</span></span>() &#123;&#125;;//private不会被继承，因此属于添加新的方法</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		cat kitty=new cat(<span class="string">&quot;kitty&quot;</span>,<span class="string">&quot;fish&quot;</span>,18);</span><br><span class="line">		kitty.describe();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="关键字super"><a href="#关键字super" class="headerlink" title="关键字super"></a>关键字super</h1><p>◼ 用法1：super可被子类用来引用其直接父类<br>super.父类成员变量或方法 （非private类型）<br>◼ 用法2：子类调用直接父类构造函数super( [参数列表] )，super尽在子类的构造方法中使用，而且必须是第一个可执行语句<br>父类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package animals;</span><br><span class="line">public class animal</span><br><span class="line">&#123;</span><br><span class="line">	public String name;</span><br><span class="line">	public String hobby;</span><br><span class="line">	public int age;</span><br><span class="line">	public animal(String name,String hobby,int age)</span><br><span class="line">	&#123;</span><br><span class="line">		this.name=name;</span><br><span class="line">		this.hobby=hobby;</span><br><span class="line">		this.age=age;</span><br><span class="line">	&#125;</span><br><span class="line">	public void <span class="function"><span class="title">print</span></span>()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;My name is&quot;</span>+name+<span class="string">&quot;.I like&quot;</span>+hobby+<span class="string">&quot;I am&quot;</span>+age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class cat extends animal</span><br><span class="line">&#123;</span><br><span class="line">	public int lnum;</span><br><span class="line">	public cat(String name,String hobby,int age,int lnum)</span><br><span class="line">	&#123;</span><br><span class="line">		super(name,hobby,age);//super调用父类的构造函数，但是父类的构造函数实际上并没有被继承</span><br><span class="line">		this.lnum=lnum;</span><br><span class="line">	&#125;</span><br><span class="line">	public void <span class="function"><span class="title">print</span></span>()</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;My name is&quot;</span>+name+<span class="string">&quot;.I like&quot;</span>+hobby+<span class="string">&quot;I am&quot;</span>+age+<span class="string">&quot;.I have &quot;</span>+lnum+<span class="string">&quot;legs&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	public void <span class="function"><span class="title">f1</span></span>()</span><br><span class="line">	&#123;</span><br><span class="line">		super.print();//super引用父类的方法</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args)</span><br><span class="line">	&#123;</span><br><span class="line">		cat kitty=new cat(<span class="string">&quot;kitty&quot;</span>,<span class="string">&quot;fish&quot;</span>,18,4);</span><br><span class="line">		kitty.print();</span><br><span class="line">		//super.print();//super不能用在静态方法中</span><br><span class="line">		kitty.f1();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="super衍生的问题"><a href="#super衍生的问题" class="headerlink" title="super衍生的问题"></a>super衍生的问题</h2><p>子类对象在创建和初始化的时候，需要在子类构造函数中首先调用父类的构造函数，这种调用要么是显示调用，要么是隐式自动调用<br><img src="/photos/super.png"><br>结果：报错<br>解释：子类函数在创建和初始化的时候，需要在子类的额构造函数里面调用父类的构造函数，这种调用要么是显示调用（可以通过super），要么是隐式调用。<br>没<strong>有显式调用的话</strong>，系统将会自动的调用默认的父类的构造函数（没有参数的），但是如果用户定义了父类的构造函数而且有参数，父类的无参的构造函数就会缺失。</p>
+<p>解决方法：在父类中补上缺失的构造函数<br><img src="/photos/super1.png"></p>
+<h2 id="再次强调"><a href="#再次强调" class="headerlink" title="再次强调"></a>再次强调</h2><p>◼ 子类对象在创建时，不仅要用调用本类的构造函数，而且还要调用父<br>类相应的构造函数，且父类构造函数首先调用<br>◼ 因此，子类构造函数如果不显示地通过super调用父类构造函数，则<br>系统将自动隐式调用默认的父类构造函数（带0个参数的）<br>◼ 在这种情况下，如果没有缺省的父类构造函数，</p>
+
+      
+      
+        
+        
+          <div hidden="hidden"></div>
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">继承和多态</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/09/%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/">展开全文qwq >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-java访问控制和内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -981,103 +1087,9 @@
 
 
   
-    <article id="post-双链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/02/%E5%8F%8C%E9%93%BE%E8%A1%A8/">双链表</a>
-    </h1>
-  
-
-            <!-- 添加代码 -->
-    
-
-      </header>
-    
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>单链表的一个缺点是我们在一个已知节点的基础上，只知道他的下一个节点而不知道他的前一个节点，需要的话，要遍历整个链表才能知道。</p>
-        
-      
-      
-        
-        
-          <div hidden="hidden"></div>
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/02/%E5%8F%8C%E9%93%BE%E8%A1%A8/">展开全文qwq >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1265,6 +1277,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
               </li>
             
             <div class="clearfix"></div>
