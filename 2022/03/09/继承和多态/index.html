@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>继承和多态 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="继承Java使用关键字extends来实现继承 继承的概念◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承  重要问题1.子类除了继承父亲的属性和操作外，还可以定义自己的属性和操作，也可以对父亲的操作进行重写2.子类并不继承父亲的构造函数 方法重写在子类中创建一个">
+  <meta name="description" content="继承Java使用关键字extends来实现继承 继承的概念◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承">
 <meta property="og:type" content="article">
 <meta property="og:title" content="继承和多态">
 <meta property="og:url" content="http://example.com/2022/03/09/%E7%BB%A7%E6%89%BF%E5%92%8C%E5%A4%9A%E6%80%81/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="继承Java使用关键字extends来实现继承 继承的概念◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承  重要问题1.子类除了继承父亲的属性和操作外，还可以定义自己的属性和操作，也可以对父亲的操作进行重写2.子类并不继承父亲的构造函数 方法重写在子类中创建一个">
+<meta property="og:description" content="继承Java使用关键字extends来实现继承 继承的概念◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/photos/super.png">
 <meta property="og:image" content="http://example.com/photos/super1.png">
+<meta property="og:image" content="http://example.com/photos/duotai.png">
 <meta property="article:published_time" content="2022-03-09T03:43:42.000Z">
-<meta property="article:modified_time" content="2022-03-09T05:15:07.561Z">
+<meta property="article:modified_time" content="2022-03-09T15:40:43.353Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="java">
@@ -74,7 +75,7 @@
 			</ul>
 			<nav>
     <a>总文章数 21</a>
-    <a>总字数 <span class="post-count">11.5k</span></a>
+    <a>总字数 <span class="post-count">12k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -203,7 +204,7 @@
       
         <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>Java使用关键字extends来实现继承</p>
 <h2 id="继承的概念"><a href="#继承的概念" class="headerlink" title="继承的概念"></a>继承的概念</h2><p>◼ 在OOP中，允许用现有的类来定义一个新类，这个新类就叫做原有类的<br>子类(派生类)，原有类称为父类(基类、超类) ◼ Java类只支持单继承(一个类只能有一个直接父类)，且都是公有继承</p>
-<!---more-->
+<span id="more"></span>
 <h1 id="重要问题"><a href="#重要问题" class="headerlink" title="重要问题"></a>重要问题</h1><p>1.子类除了继承父亲的属性和操作外，还可以定义自己的属性和操作，也可以对父亲的操作进行重写<br>2.子类并不继承父亲的构造函数</p>
 <h1 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h1><p>在子类中创建一个与父亲相同名称，相同参数列表，相同返回值的方法，只是方法中的实现不同，以实现不同于父类的功能，这种方法被称之为重写。</p>
 <h2 id="方法重写规则"><a href="#方法重写规则" class="headerlink" title="方法重写规则"></a>方法重写规则</h2><p>◼ 子类方法的名称、参数表、返回类型必须与与被重写的方法相同<br>◼ 重写方法的访问权限不能比父类的权限低(public&gt;protected&gt;default&gt;private)★<br>◼ 重写方法一定不能抛出新的非运行时异常或者比被重写方法声明更加宽泛的非运行时异常。<br>◼ private方法、final方法、static方法不能被重写（下页示例）<br>◼ 构造函数不能被重写<br>父类</p>
@@ -218,6 +219,20 @@
 <h2 id="super衍生的问题"><a href="#super衍生的问题" class="headerlink" title="super衍生的问题"></a>super衍生的问题</h2><p>子类对象在创建和初始化的时候，需要在子类构造函数中首先调用父类的构造函数，这种调用要么是显示调用，要么是隐式自动调用<br><img src="/photos/super.png"><br>结果：报错<br>解释：子类函数在创建和初始化的时候，需要在子类的额构造函数里面调用父类的构造函数，这种调用要么是显示调用（可以通过super），要么是隐式调用。<br>没<strong>有显式调用的话</strong>，系统将会自动的调用默认的父类的构造函数（没有参数的），但是如果用户定义了父类的构造函数而且有参数，父类的无参的构造函数就会缺失。</p>
 <p>解决方法：在父类中补上缺失的构造函数<br><img src="/photos/super1.png"></p>
 <h2 id="再次强调"><a href="#再次强调" class="headerlink" title="再次强调"></a>再次强调</h2><p>◼ 子类对象在创建时，不仅要用调用本类的构造函数，而且还要调用父<br>类相应的构造函数，且父类构造函数首先调用<br>◼ 因此，子类构造函数如果不显示地通过super调用父类构造函数，则<br>系统将自动隐式调用默认的父类构造函数（带0个参数的）<br>◼ 在这种情况下，如果没有缺省的父类构造函数，</p>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><p>◼ 什么是多态？<br>一个对象只有一个类型（是在声明时给它的）。但是，如果该对象能<br>指向其他不同类型的对象(通常是子类)，那么这个对象就是多态性的。<br>多态主要体现继承过程中的动态调用问题，具体来说，可以用“一个<br>对外接口，多个内在实现方法”表示<br>父类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package animal;</span><br><span class="line"></span><br><span class="line">public class animals &#123;</span><br><span class="line">public String name;</span><br><span class="line">public String hobby;</span><br><span class="line">public void <span class="function"><span class="title">eat</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;喜欢吃东西&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>子类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package animal;</span><br><span class="line"></span><br><span class="line">public class dog extends animals&#123;</span><br><span class="line">public void <span class="function"><span class="title">eat</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;喜欢吃骨头&quot;</span>);//多个内在实现方式</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package animal;</span><br><span class="line"></span><br><span class="line">public class dog extends animals&#123;</span><br><span class="line">public void <span class="function"><span class="title">eat</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;喜欢吃骨头&quot;</span>);//多个内在实现方式</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package animal;</span><br><span class="line"></span><br><span class="line">public class <span class="built_in">test</span> &#123;</span><br><span class="line">public static void main(String[] args)</span><br><span class="line">&#123;</span><br><span class="line">	show(new cat());</span><br><span class="line">	show(new dog());</span><br><span class="line">&#125;</span><br><span class="line">public static void show(animals ani)//一个接口</span><br><span class="line">&#123;</span><br><span class="line">	ani.eat();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">喜欢吃鱼</span><br><span class="line">喜欢吃骨头</span><br></pre></td></tr></table></figure>
+<h2 id="多态实现的三个条件"><a href="#多态实现的三个条件" class="headerlink" title="多态实现的三个条件"></a>多态实现的三个条件</h2><p>◼ 继承：<br>    ◼ 在多态中必须存在有继承关系的子类和父类<br>◼ 重写：<br>    ◼ 子类对父类方法进行重新定义，在调用这些方法时会调用子类的方法<br>◼ 向上转型：<br>    ◼ 父类引用指向子类对象</p>
+<h2 id="多态程序的注意点"><a href="#多态程序的注意点" class="headerlink" title="多态程序的注意点"></a>多态程序的注意点</h2><p>◼ 多态情况下，子类中存在跟父类同名的成员变量时，访问的是父类的成员变量 (变量不属于重写)<br>◼ 多态情况下，子类中存在跟父类同名的非静态方法时，调用的是子类中的方法 (重写的方法)<br>◼ 多态情况下，子类中存在跟父类同名的静态方法时，访问的是父类中的方法<br>(静态方法不能重写)<br>◼ 多态情况下，访问不到子类中特有的成员 (需要向下转换)</p>
+<p><img src="/photos/duotai.png"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guchenjun789/article/details/81055317">向上转型的意义</a><br>向下转型使得能够访问到子类特有的方法和成员</p>
 
       
       
@@ -515,23 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">访问控制和内部类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,15 +546,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">访问控制和内部类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,11 +578,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约数求法</a>
+                <a href="javascript:void(0)" class="js-tag color5">约数相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+                <a href="javascript:void(0)" class="js-tag color5">约数求法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,11 +590,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约数相关</a>
+                <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,14 +611,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">质数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
               </li>
             
             <div class="clearfix"></div>
