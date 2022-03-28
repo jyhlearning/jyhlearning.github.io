@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>快速排序 | Hexo</title>
+  <title>宽搜与深搜 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。">
+  <meta name="description" content="题目链接题目链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速排序">
-<meta property="og:url" content="http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="宽搜与深搜">
+<meta property="og:url" content="http://example.com/2022/03/28/%E5%AE%BD%E6%90%9C%E4%B8%8E%E6%B7%B1%E6%90%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。">
+<meta property="og:description" content="题目链接题目链接">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-01-09T06:40:50.000Z">
-<meta property="article:modified_time" content="2022-03-07T14:59:07.417Z">
+<meta property="article:published_time" content="2022-03-28T14:33:34.000Z">
+<meta property="article:modified_time" content="2022-03-28T15:17:08.902Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="算法">
-<meta property="article:tag" content="基础算法">
-<meta property="article:tag" content="快速排序">
+<meta property="article:tag" content="宽度优先搜索">
+<meta property="article:tag" content="深度优先搜索">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -173,14 +173,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-快速排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-宽搜与深搜" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      快速排序
+      宽搜与深搜
     </h1>
   
 
@@ -198,10 +198,29 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这种方法的思路是随机选取一个元素，将大于这个元素的元素放到一边，小于这个元素的元素放到另一边，如此就能得到在一个划分了整体范围内有序的元素组合。再通过递归细分下去，就能够得到一个有序的数组。</p>
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flood-fill/">题目链接</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-area-of-island/">题目链接</a></p>
 <span id="more"></span>
-<h1 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#include &quot;iostream&quot;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N=1e6+10;</span><br><span class="line">int num[N];</span><br><span class="line">void quick_sort(int num[],int l,int r)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r)<span class="built_in">return</span> ;</span><br><span class="line">    int x=num[l],i=l-1,j=r+1;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++;<span class="keyword">while</span>(num[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j--;<span class="keyword">while</span>(num[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)swap(num[i],num[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(num,l,j);</span><br><span class="line">    quick_sort(num,j+1,r);</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++)</span><br><span class="line">    cin&gt;&gt;num[i];</span><br><span class="line">    quick_sort(num,0,n-1);</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;n;i++)</span><br><span class="line">    cout&lt;&lt;<span class="string">&#x27; &#x27;</span>&lt;&lt;<span class="string">num[i];</span></span><br><span class="line"><span class="string">    return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/819/">题目讲解链接&gt;&gt;</a></p>
+<p>宽度优先搜索和深度优先搜索在我看来，他们的区别是宽度优先搜索会优先遍历在当前状态下的所有情况，而深度优先搜索是先将一种方法途径一直走下去直到边界，然后回溯走下一条道路。</p>
+<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p>有一幅以 m x n 的二维整数数组表示的图画 image ，其中 image[i][j] 表示该图画的像素值大小。</p>
+<p>你也被给予三个整数 sr ,  sc 和 newColor 。你应该从像素 image[sr][sc] 开始对图像进行 上色填充 。</p>
+<p>为了完成 上色工作 ，从初始像素开始，记录初始坐标的 上下左右四个方向上 像素值与初始坐标相同的相连像素点，接着再记录这四个方向上符合条件的像素点与他们对应 四个方向上 像素值与初始坐标相同的相连像素点，……，重复该过程。将所有有记录的像素点的颜色值改为 newColor 。</p>
+<p>最后返回 经过上色渲染后的图像 。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题很简单，从初始位置开始走，把为1的走完就可以了，宽搜和深搜都可以做，但是现在存在一个问题，就是要记住我们走过了哪些点，避免进入死循环。因为会更改image的数值，所以可以作为我们的判断标准，但是但是，如果newcolor和原来的值相同，就没不能够直接做了，会死循环，我们发现在这种情况下无需更改，直接返回就好了。</p>
+<h1 id="1-深搜"><a href="#1-深搜" class="headerlink" title="1 深搜"></a>1 深搜</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int std=image[sr][sc];//定义相同标准值</span><br><span class="line"><span class="keyword">if</span>(std!=newColor)//特殊情况判断</span><br><span class="line">    dfs(image,sr,sc,std,newColor);</span><br><span class="line"><span class="built_in">return</span> image;</span><br><span class="line">&#125;</span><br><span class="line">int dx[4]=&#123;0,0,-1,1&#125;;</span><br><span class="line">int dy[4]=&#123;-1,1,0,0&#125;;</span><br><span class="line">void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; image, int sr, int sc, int std,int newColor)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(image[sr][sc]==std)//被操作的位置为标准值</span><br><span class="line">    &#123;</span><br><span class="line">        image[sr][sc]=newColor;//上色</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;4;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int x=sc+dx[i];</span><br><span class="line">            int y=sr+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(x&gt;=0&amp;&amp;x&lt;image[0].size()&amp;&amp;y&gt;=0&amp;&amp;y&lt;image.size())</span><br><span class="line">                dfs(image,y,x,std,newColor);//进入下一层深度</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-宽搜"><a href="#2-宽搜" class="headerlink" title="2 宽搜"></a>2 宽搜</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int std=image[sr][sc];</span><br><span class="line"><span class="keyword">if</span>(std==newColor)<span class="built_in">return</span> image;</span><br><span class="line">queue&lt;pair&lt;int,int&gt;&gt; q;</span><br><span class="line">q.push(&#123;sc,sr&#125;);</span><br><span class="line">image[sr][sc]=newColor;</span><br><span class="line">int dx[4]=&#123;0,0,-1,1&#125;;</span><br><span class="line">int dy[4]=&#123;-1,1,0,0&#125;;</span><br><span class="line"><span class="keyword">while</span>(!q.empty())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i=0;i&lt;4;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int x=q.front().first+dx[i];</span><br><span class="line">        int y=q.front().second+dy[i];</span><br><span class="line">        <span class="keyword">if</span>(x&gt;=0&amp;&amp;y&gt;=0&amp;&amp;x&lt;image[0].size()&amp;&amp;y&lt;image.size()&amp;&amp;image[y][x]==std)</span><br><span class="line">        &#123;</span><br><span class="line">            image[y][x]=newColor;</span><br><span class="line">            q.push(&#123;x,y&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    q.pop();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> image;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><p>给你一个大小为 m x n 的二进制矩阵 grid 。</p>
+<p>岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。</p>
+<p>岛屿的面积是岛上值为 1 的单元格的数目。</p>
+<p>计算并返回 grid 中最大的岛屿面积。如果没有岛屿，则返回面积为 0 </p>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>先找到一个1，再以他为起点，找出其他与他相邻的1，为了避免在找1的过程中找到了属于同一个岛屿的1，我们可以将之前搜过的岛屿给删掉，就是将其值置为0。</p>
+<h2 id="1宽搜"><a href="#1宽搜" class="headerlink" title="1宽搜"></a>1宽搜</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">int Max=0;</span><br><span class="line"><span class="keyword">for</span>(int i=0;i&lt;grid.size();i++)//寻找岛屿中的1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(int j=0;j&lt;grid[0].size();j++)</span><br><span class="line">    <span class="keyword">if</span>(grid[i][j]==1)</span><br><span class="line">    Max=max(bfs(grid,i,j),Max);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> Max;</span><br><span class="line">&#125;</span><br><span class="line">int dx[4]=&#123;0,0,-1,1&#125;;</span><br><span class="line">int dy[4]=&#123;-1,1,0,0&#125;;</span><br><span class="line">typedef pair&lt;int,int&gt;PII;</span><br><span class="line">queue&lt;PII&gt; q;</span><br><span class="line">int bfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid,int i,int j)</span><br><span class="line">&#123;</span><br><span class="line">    int count=0;</span><br><span class="line">    q.push(&#123;i,j&#125;);</span><br><span class="line">    grid[i][j]=0;</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        PII k=q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;4;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int y=k.first+dy[i];</span><br><span class="line">            int x=k.second+dx[i];</span><br><span class="line">            <span class="keyword">if</span>(x&gt;=0&amp;&amp;x&lt;grid[0].size()&amp;&amp;y&gt;=0&amp;&amp;y&lt;grid.size()&amp;&amp;grid[y][x]==1)</span><br><span class="line">            &#123;</span><br><span class="line">                q.push(&#123;y,x&#125;);</span><br><span class="line">                grid[y][x]=0;//这里需要注意，在存入一个数字后就要将其置为0，不能等到出队的时候置为0，因为在遍历别的1的时候可能入队了几个相同的1的位置。如果要在出队的时候记为1，就必须在后面加上一个条件判断，看它是否已经出过一次队了。我整体代码的结构思路是出一个1，数量就加一。</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2深搜"><a href="#2深搜" class="headerlink" title="2深搜"></a>2深搜</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int dfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid,int y,int x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(grid[y][x]==1)</span><br><span class="line">        &#123;</span><br><span class="line">            int sum=1;</span><br><span class="line">            grid[y][x]=-1;</span><br><span class="line">            <span class="keyword">for</span>(int i=0;i&lt;4;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                int x1=x+dx[i];</span><br><span class="line">                int y1=y+dy[i];</span><br><span class="line">                <span class="keyword">if</span>(x1&gt;=0&amp;&amp;x1&lt;grid[0].size()&amp;&amp;y1&gt;=0&amp;&amp;y1&lt;grid.size()&amp;&amp;grid[y1][x1]==1)</span><br><span class="line">                sum+=dfs(grid,y1,x1);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">return</span> sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> 0;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>宽度优先搜索要尽量避免将重复的对象入队，以免造成搜索重复，所以在入队的时候就应当将其的状态置为不再可用的状态。</p>
+<p>而深度优先搜索因为有回溯的情况发生，所以要根据具体情况去判断，例如在搞<a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/905/">全排列</a>的时候，递归出来后就应该将其状态恢复成可用状态。</p>
 
       
       
@@ -215,7 +234,7 @@
                 
                 <br>
                 <strong>本文链接：</strong>
-                http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/
+                http://example.com/2022/03/28/%E5%AE%BD%E6%90%9C%E4%B8%8E%E6%B7%B1%E6%90%9C/
                 <br>
                 <strong>版权声明：</strong>
                 本作品采用
@@ -279,11 +298,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">宽度优先搜索</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">快速排序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">深度优先搜索</a>
         		</li>
       		
 		</ul>
@@ -339,7 +358,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/01/09/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/28/%E5%AE%BD%E6%90%9C%E4%B8%8E%E6%B7%B1%E6%90%9C/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -353,18 +372,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/01/30/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          归并排序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/01/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2022/03/27/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">滑动窗口</div>
       <i class="icon-circle-right"></i>
     </a>
   
