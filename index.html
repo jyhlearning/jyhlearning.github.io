@@ -63,8 +63,8 @@
 	        
 			</ul>
 			<nav>
-    <a>总文章数 33</a>
-    <a>总字数 <span class="post-count">20.4k</span></a>
+    <a>总文章数 34</a>
+    <a>总字数 <span class="post-count">21.1k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -168,6 +168,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-运算符作业总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/04/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/">运算符作业总结</a>
+    </h1>
+  
+
+            <!-- 添加代码 -->
+    
+
+      </header>
+    
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+        
+      
+      
+        
+        
+          <div hidden="hidden"></div>
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">const</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/04/%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BD%9C%E4%B8%9A%E6%80%BB%E7%BB%93/">展开全文qwq >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -189,10 +279,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &quot;iostream&quot;</span></span><br><span class="line"><span class="comment">#include &quot;string&quot;</span></span><br><span class="line"><span class="comment">#include &quot;cstdlib&quot;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    string a=<span class="string">&quot;jianghao&quot;</span>;</span><br><span class="line">    string b=<span class="string">&quot; yu &quot;</span>;</span><br><span class="line">    int x=a.find(<span class="string">&quot;g&quot;</span>,0);//返回字串<span class="string">&quot;g&quot;</span>的位置</span><br><span class="line">    a.insert(x+1,b);//在字符串中插入字符串</span><br><span class="line">    int y=a.find_first_of(b);//在两个字符串中找到第一个相同字符串的位置</span><br><span class="line">    string c=a.substr(1,4);//以1为起点截取4个长度的字符串</span><br><span class="line">    cout&lt;&lt;<span class="string">c&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    c</span>.erase(0,2);//删除string里面的字符，从下标0删到下标2，如果不指明右区间，默认从左区间开始全部删完</span><br><span class="line">    cout&lt;&lt;<span class="string">c&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    c</span>.clear();//完全清空</span><br><span class="line">    cout&lt;&lt;<span class="string">c&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    cout&lt;&lt;x&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    cout&lt;&lt;a&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    double j=1231.213;</span></span><br><span class="line"><span class="string">    string d1=to_string(j);//数字转为字符串类型</span></span><br><span class="line"><span class="string">    cout&lt;&lt;d1&lt;&lt;endl;</span></span><br><span class="line"><span class="string">    int l=stoi(d1);//字符串转为数字，与之类似的还有stod,stof,将字符串转为浮点型</span></span><br><span class="line"><span class="string">    cout&lt;&lt;l&lt;&lt;endl;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/2236.html">相关链接1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/bcbhwbcbhw/article/details/107552800">相关链接2</a></p>
-
+        <h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1>
+        
       
       
         
@@ -277,9 +365,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<p>您真的是好牛啊，人上人是吧，啊？什么叫不要把下面的习惯带到上面来了，啊？你计算机学院的就高人一等是吧，啊？你机房的电脑是有多金贵啊，啊？卡的要死，谁愿意用啊，啊？你个老婆子又没跟我么们将个什么规则就在这里乱bb啥呢？啊？你是脑子不好是吗？你tm一言不合就开骂是吧？原因都要不讲清楚，你到底是个什么意思，嗯？我就真不知道你是哪里来的优越感了，你就管管机房电脑，改改实验报告，你优越感就出来了？是吧？我就想问问你什么叫做下面的，下面的是什么意思，你就是上面的是吧，你是个脑瘫吧，教书都能给你教出优越感来，我真的是服了你个老太婆了，歧视尼玛呢。勾8东西。不懂规矩你先说一句要死是吧，你不讲清楚是你的问题，关我们鸟事，最后烦的还是你自己，搞得这么麻烦，你这个勾8老东西，听我一句劝，早日下岗退休回家算逑，在这里祸害学生。                                                                </p>
-
+        <h1 id=""><a href="#" class="headerlink" title="================="></a>=================</h1>
+        
       
       
         
@@ -645,11 +732,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -716,22 +803,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">题目链接1</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">题目链接2</a><br>&lt;–more–&gt;</p>
-<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。</p>
-<p>就是去数有多少个1，但是一位一位的遍历右移实在是太麻烦了，所以我们干脆直接在数字里面删掉1，由此产生了两种思路</p>
-<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>删去最后面的1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n&amp;(n-1);</span><br></pre></td></tr></table></figure>
-<p>这种做法恰好能删掉最后面的1</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int ret = 0;</span><br><span class="line">       <span class="keyword">while</span> (n) &#123;</span><br><span class="line">           n &amp;= n - 1;</span><br><span class="line">           ret++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> ret;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>删去最前面的1(lowbit操作)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n-=(n&amp;-n);</span><br></pre></td></tr></table></figure>
-<p>n&amp;-n的结果是n的最高位的1的位置，例如1110111，运算结果为1000000.</p>
-<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int ret = 0;</span><br><span class="line">       <span class="keyword">while</span> (n) &#123;</span><br><span class="line">          	int lowbit=n&amp;-n;</span><br><span class="line">		n-=lowbit;</span><br><span class="line">           ret++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">return</span> ret;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><p>给你一个整数 n，请你判断该整数是否是 2 的幂次方。如果是，返回 true ；否则，返回 false 。</p>
-<p>根据2进制数的性质，2的幂次方的数只有最高位一个1，所以只需要判断除了最高位以外是否还含有其他的1.在这里就可以用lowbit操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> n &gt; 0 &amp;&amp; (n &amp; -n) == n;</span><br></pre></td></tr></table></figure>
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-1-bits/">题目链接1</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/power-of-two/">题目链接2</a></p>
+        
       
       
         
@@ -835,11 +908,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
         		</li>
       		
 		</ul>
@@ -936,88 +1009,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/21/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">展开全文qwq >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/19/%E9%9A%8F%E7%AC%942/">随笔2</a>
-    </h1>
-  
-
-            <!-- 添加代码 -->
-    
-
-      </header>
-    
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>没什么想说的，我就是想不通这是为什么，感觉是挺顺利的，不知道为什么就是没有过，哎。就感觉很离谱，也许就是这样吧，我不想再去争取任何东西了，没必要，到头来轮的一场空，精心的准备最后看了几眼就走了，我希望他能给我一个答复，我也不知道是为什么，我运气就这样了。也许许多东西不能归结于运气，就是一个人的命罢了，很无语，它应该这样发展我也没有办法。哎，到头来轮的一场空，以后该做什么呢？以后该体验些什么呢，我什么都不知道，我也不知道未来能够干些啥，就这样吧。人生啊，哎！越是想要的就越是得不到，就越是阴差阳错，就越是离谱，以后把日子混完就算了，到底是为了什么呢？我对任何事情的发生都不报任何希望了。就是这样吧，很是无语。生亦何苦，死亦何哀。生活总是喜欢给我沉重一击，总是喜欢和我开玩笑。我也没什么好说的，就是希望有一天能够来个痛快，别折磨人了，好吗？我现在是为了别人而生活，不如说是活着，我真不知道这样到底有什么意义可言，什么时候才是个头啊。又是一个坏的开头，终将以一个坏的事件结束，当你对生活充满希望时，生活总是给你沉重一击，当头一棒，打的你头破血流，满目疮痍。</p>
-
-      
-      
-        
-        
-          <div hidden="hidden"></div>
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/19/%E9%9A%8F%E7%AC%942/">展开全文qwq >></a>
         </p>
       
 
@@ -1174,19 +1165,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1198,15 +1177,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">深度优先搜索</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,7 +1193,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,11 +1205,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">滑动窗口</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">深度优先搜索</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">滑动窗口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,15 +1241,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约数求法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约数相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
+                <a href="javascript:void(0)" class="js-tag color5">约数求法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,15 +1253,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">质数</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">const</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
