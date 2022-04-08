@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/photos/task1.png">
 <meta property="article:published_time" content="2022-04-04T05:11:51.000Z">
-<meta property="article:modified_time" content="2022-04-04T05:54:59.790Z">
+<meta property="article:modified_time" content="2022-04-08T03:32:16.812Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="c++">
@@ -72,8 +72,8 @@
 	        
 			</ul>
 			<nav>
-    <a>总文章数 35</a>
-    <a>总字数 <span class="post-count">21.7k</span></a>
+    <a>总文章数 36</a>
+    <a>总字数 <span class="post-count">22.2k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -224,6 +224,8 @@
 <p>删除对象数组</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete[] 指针名;</span><br></pre></td></tr></table></figure>
 <h1 id="我的提交"><a href="#我的提交" class="headerlink" title="我的提交"></a>我的提交</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstring&gt;</span></span><br><span class="line"><span class="comment">#include &lt;utility&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace rel_ops;</span><br><span class="line">class CSTRING</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    char* p;</span><br><span class="line">public:</span><br><span class="line">    CSTRING();</span><br><span class="line">    ~CSTRING();</span><br><span class="line">    CSTRING(const CSTRING&amp; p);</span><br><span class="line">    friend istream&amp; operator&gt;&gt;(istream&amp; out, CSTRING&amp; p);</span><br><span class="line">    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, CSTRING&amp; p);</span><br><span class="line">    bool operator==(const CSTRING&amp; p)const;</span><br><span class="line">    bool operator&lt;(const CSTRING&amp; p)const;</span><br><span class="line">    void operator+=(const CSTRING&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line">CSTRING::~<span class="function"><span class="title">CSTRING</span></span>() &#123;&#125;;</span><br><span class="line">CSTRING::<span class="function"><span class="title">CSTRING</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    p = new char[100];</span><br><span class="line">    *p = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">CSTRING::CSTRING(const CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    strcpy(p, P.p);</span><br><span class="line">&#125;</span><br><span class="line">void CSTRING::operator+=(const CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    strcat(this-&gt;p, <span class="string">&quot;--&quot;</span>);</span><br><span class="line">    strcat(this-&gt;p, P.p);</span><br><span class="line">&#125;</span><br><span class="line">bool CSTRING::operator&lt;(const CSTRING&amp; P)const</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (strcmp(this-&gt;p, P.p)&lt;0)<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">bool CSTRING::operator==(const CSTRING&amp; P)const</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (strcmp(P.p, this-&gt;p) == 0)</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">ostream&amp; operator&lt;&lt;(ostream&amp; out, CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">P.p;</span></span><br><span class="line"><span class="string">    return out;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">istream&amp; operator&gt;&gt;(istream&amp; in, CSTRING&amp; P</span>)</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; P.p;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">in</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int n, i, j;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        CSTRING* c = new CSTRING[n + 2];</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; c[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n - 1; i++)</span><br><span class="line">            <span class="keyword">for</span> (j = 0; j &lt; n - i - 1; j++)</span><br><span class="line">                <span class="keyword">if</span> (c[j] &gt; c[j + 1])</span><br><span class="line">                &#123;</span><br><span class="line">                    c[n] = c[j];</span><br><span class="line">                    c[j] = c[j + 1];</span><br><span class="line">                    c[j + 1] = c[n];</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n; i++)</span><br><span class="line">            c[n + 1] += c[i];</span><br><span class="line">        cout &lt;&lt; <span class="string">c[n + 1] &lt;&lt; endl;</span></span><br><span class="line"><span class="string">        delete[] c</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><p>增加了‘=’号运算符，用于两个已经构造了的类的赋值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstring&gt;</span></span><br><span class="line"><span class="comment">#include &lt;utility&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace rel_ops;</span><br><span class="line">class CSTRING</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    char* p;</span><br><span class="line">public:</span><br><span class="line">    CSTRING();</span><br><span class="line">    ~CSTRING();</span><br><span class="line">    CSTRING(const CSTRING&amp; p);</span><br><span class="line">    friend istream&amp; operator&gt;&gt;(istream&amp; out, CSTRING&amp; p);</span><br><span class="line">    friend ostream&amp; operator&lt;&lt;(ostream&amp; out, CSTRING&amp; p);</span><br><span class="line">    CSTRING&amp; operator=(const CSTRING&amp;p);//增加项</span><br><span class="line">    bool operator==(const CSTRING&amp; p)const;</span><br><span class="line">    bool operator&lt;(const CSTRING&amp; p)const;</span><br><span class="line">    void operator+=(const CSTRING&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line">CSTRING::~<span class="function"><span class="title">CSTRING</span></span>() &#123;&#125;;</span><br><span class="line">CSTRING::<span class="function"><span class="title">CSTRING</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    p = new char[100];</span><br><span class="line">    *p = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">CSTRING::CSTRING(const CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    strcpy(p, P.p);</span><br><span class="line">&#125;</span><br><span class="line">CSTRING&amp; CSTRING::operator=(const CSTRING&amp;P)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(this==&amp;P)</span><br><span class="line">    <span class="built_in">return</span> *this;</span><br><span class="line">    delete[] p;</span><br><span class="line">    p=new char(strlen(P.p)+1);</span><br><span class="line">    strcpy(p,P.p);</span><br><span class="line">    <span class="built_in">return</span> *this;</span><br><span class="line">&#125;</span><br><span class="line">void CSTRING::operator+=(const CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    strcat(this-&gt;p, <span class="string">&quot;--&quot;</span>);</span><br><span class="line">    strcat(this-&gt;p, P.p);</span><br><span class="line">&#125;</span><br><span class="line">bool CSTRING::operator&lt;(const CSTRING&amp; P)const</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (strcmp(this-&gt;p, P.p)&lt;0)<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">bool CSTRING::operator==(const CSTRING&amp; P)const</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (strcmp(P.p, this-&gt;p) == 0)</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">ostream&amp; operator&lt;&lt;(ostream&amp; out, CSTRING&amp; P)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">P.p;</span></span><br><span class="line"><span class="string">    return out;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">istream&amp; operator&gt;&gt;(istream&amp; in, CSTRING&amp; P</span>)</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; P.p;</span><br><span class="line">    <span class="built_in">return</span> <span class="keyword">in</span>;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    int n, i, j;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        CSTRING* c = new CSTRING[n + 2];</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; c[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n - 1; i++)</span><br><span class="line">            <span class="keyword">for</span> (j = 0; j &lt; n - i - 1; j++)</span><br><span class="line">                <span class="keyword">if</span> (c[j] &gt; c[j + 1])</span><br><span class="line">                &#123;</span><br><span class="line">                    c[n] = c[j];</span><br><span class="line">                    c[j] = c[j + 1];</span><br><span class="line">                    c[j + 1] = c[n];</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = 0; i &lt; n; i++)</span><br><span class="line">            c[n + 1] += c[i];</span><br><span class="line">        cout &lt;&lt; <span class="string">c[n + 1] &lt;&lt; endl;</span></span><br><span class="line"><span class="string">        delete[] c</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
       
         
@@ -521,18 +523,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">语言</a>
               </li>
              
@@ -549,11 +539,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">访问控制和内部类</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,27 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">访问控制和内部类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,15 +587,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,15 +623,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约数相关</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,11 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
+                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
               </li>
             
             <div class="clearfix"></div>
