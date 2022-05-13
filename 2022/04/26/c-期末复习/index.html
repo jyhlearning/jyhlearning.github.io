@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/photos/xmind.png">
 <meta property="og:image" content="http://example.com/photos/test4.png">
 <meta property="article:published_time" content="2022-04-26T04:42:52.000Z">
-<meta property="article:modified_time" content="2022-05-10T14:14:39.405Z">
+<meta property="article:modified_time" content="2022-05-13T09:54:53.136Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="c++">
@@ -74,7 +74,7 @@
 			</ul>
 			<nav>
     <a>总文章数 48</a>
-    <a>总字数 <span class="post-count">31.1k</span></a>
+    <a>总字数 <span class="post-count">31.5k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -229,13 +229,14 @@
 <h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><p>1.虚函数的声明只能出现在函数的声明中，不能出现在函数的实现过程中<br>2.虚函数的调用要通过（函数成员）（指针）（引用）来访问虚函数</p>
 <h2 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h2><p>通过基类的指针删除派生类的对象如果不将基类的析构函数声明为虚函数，那么调用的是基类的析构函数，派生类的析构函数不会被执行，派生类的空间不会被释放，就造成了内存泄漏</p>
 <p>所以要用基类的指针删除派生类，就应该把基类的析构函数声明为虚函数</p>
-<h2 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h2><p>声明为纯虚函数后就可以不再给出函数的实现部分<br>ex</p>
+<h2 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h2><p>声明为纯虚函数后就可以不再给出函数的实现部分。<br>当析构函数声明为虚函数时，必须要给出实现。<br>基类中的纯虚函数在派生类中必须要给出实现。<br>ex</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtual 函数类型 函数名（参数表）=0</span><br></pre></td></tr></table></figure>
 <h3 id="带有纯虚函数的类叫做抽象类"><a href="#带有纯虚函数的类叫做抽象类" class="headerlink" title="带有纯虚函数的类叫做抽象类"></a>带有纯虚函数的类叫做抽象类</h3><p>抽象类里面有一些接口，但没有定义，只能在自己的派生类里面去定义<br>因而抽象类不能被实例化<br>如果说派生类中没有给出全部的纯虚函数的定义，那么这个派生类仍然为抽象类仍然不能够实例化</p>
 <h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>条件：<br>1.在相同的作用域<br>2.有相同的函数名<br>3.形参的个数和类型不同</p>
 <p>有一种情况是对于两个完全相同的函数，如果后一个函数被const修饰，那么他们也能构成重载。</p>
-<h3 id="运算符的重载"><a href="#运算符的重载" class="headerlink" title="运算符的重载"></a>运算符的重载</h3><h4 id="必须重载为全局函数的运算符"><a href="#必须重载为全局函数的运算符" class="headerlink" title="必须重载为全局函数的运算符"></a>必须重载为全局函数的运算符</h4><p>&lt;&lt; &gt;&gt;</p>
-<h4 id="必须重载为成员函数的运算符"><a href="#必须重载为成员函数的运算符" class="headerlink" title="必须重载为成员函数的运算符"></a>必须重载为成员函数的运算符</h4><p>= [] () -&gt;<br><img src="/photos/xmind.png"></p>
+<h3 id="运算符的重载"><a href="#运算符的重载" class="headerlink" title="运算符的重载"></a>运算符的重载</h3><p>运算符重载至少有一个要是“自定义类型”<br>运算符重载为非成员函数的时候不一定是要重载为友元函数。</p>
+<h4 id="必须重载为全局函数的运算符"><a href="#必须重载为全局函数的运算符" class="headerlink" title="必须重载为全局函数的运算符"></a>必须重载为全局函数的运算符</h4><p>&lt;&lt; &gt;&gt;</p>
+<h4 id="必须重载为成员函数的运算符"><a href="#必须重载为成员函数的运算符" class="headerlink" title="必须重载为成员函数的运算符"></a>必须重载为成员函数的运算符</h4><p>= [] () -&gt;<br><img src="/photos/xmind.png"><br>‘=’运算符重载最后返回的应该是 *this。</p>
 <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><p>对象所占据的内存空间只包括数据成员，函数成员不在对象里面存在副本，对于一个指针成员，存放的也仅仅是它的大小，不包括给他分配的内存空间。</p>
 <p>更加权威的解释是<br>1.非静态成员变量的总和<br>2.加上编译器为了计算方便所作出的对齐处理<br>3.为了支持虚函数而产生的额外负担<br><img src="/photos/test4.png"><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mr_kanger/article/details/110482868">相关链接</a></p>
 <h2 id="构造函数和复制构造函数"><a href="#构造函数和复制构造函数" class="headerlink" title="构造函数和复制构造函数"></a>构造函数和复制构造函数</h2><p>1.既不写复制构造函数也不写构造函数系统将会自动的提供这两个默认函数<br>2.如果说只写了一个复制构造函数，那么系统将不会提供默认构造函数<br>3.如果说写了默认构造函数而没有写复制构造函数，系统会自动的提供复制构造函数。</p>
@@ -243,12 +244,21 @@
 <p>需要注意的是，当我们用等号运算符‘=’去‘赋值’一个对象的时候，调用的是‘=’而不是赋值构造函数<br>在创建的时候用=，调用的是复制构造函数</p>
 <h2 id="派生类中构造函数和析构函数的调用顺序"><a href="#派生类中构造函数和析构函数的调用顺序" class="headerlink" title="派生类中构造函数和析构函数的调用顺序"></a>派生类中构造函数和析构函数的调用顺序</h2><p>1.调用基类的构造函数，对基类的数据成员进行初始化<br>2.调用内嵌对象的构造函数，对内嵌对象进行初始化<br>3.执行派生类的构造函数，对派生类的数据成员进行初始化<br>4.析构函数和构造顺序完全相反</p>
 <h2 id="数组指针和指针数组"><a href="#数组指针和指针数组" class="headerlink" title="数组指针和指针数组"></a>数组指针和指针数组</h2><p>这了我都搞忘了<br>int* p[10]指针数组，里面存放着的是int*<br>int（*p）[10]数0组指针，p现在是一个指针，它指向的是包含10个int类型的数组。</p>
-<h1 id="左值右值引用"><a href="#左值右值引用" class="headerlink" title="左值右值引用"></a>左值右值引用</h1><p>万能引用</p>
+<h1 id="左值右值引用"><a href="#左值右值引用" class="headerlink" title="左值右值引用"></a>左值右值引用</h1><p>定义引用的时候必须要给出初值<br>万能引用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const int(类型)&amp; a=?</span><br></pre></td></tr></table></figure>
 <p>对于一个用户自定义的函数，如果函数参数为int &amp;p，那么我们将不能把一个等式的运算值传给这个函数的参数。<br>ex;<br>函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void fun(int &amp;d)</span><br><span class="line">&#123;</span><br><span class="line">···</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>函数调用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fun(2)//wrong</span><br><span class="line">a=2;</span><br><span class="line">fun(2*a);//wrong</span><br><span class="line">fun(a);//right</span><br></pre></td></tr></table></figure>
+
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><p>再没提供模板实参的情况下，如果所给出的函数实参不一样，将会导致发生冲突，这时必须显式的给出模板实参。<br>例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T fun(T x,T y)&#123;<span class="built_in">return</span> x*y&#125;</span><br></pre></td></tr></table></figure>
+<p>调用fun(4,4.5)；一个int，一个double类型，将会导致无法确定T定成哪个类型</p>
+<p>类模板的调用必须要有模板实参，即使是说有默认值的情况下也要写个  &lt;&gt;<br>类模板的实参列表指的是不包括’&lt;&gt;’里面的东西</p>
+<h1 id="动态内存分配"><a href="#动态内存分配" class="headerlink" title="动态内存分配"></a>动态内存分配</h1><p>new 和 delete是操作符，不是一个函数。<br>new int（n）的意思是分配一个int大小的内存空间并且赋初值n<br>new int[n]的意思是创建n大小的int数组</p>
+<h1 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h1><p>在编译时不发生控制转移，在编译时将函数插到向相应的位置、<br>当内联函数被调用时，内联函数在被调用出展开。</p>
+<h1 id="c-关键字"><a href="#c-关键字" class="headerlink" title="c++关键字"></a>c++关键字</h1><p>final不是关键字！！！！！是说明符<br>using class const</p>
+
       
       
         
