@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/photos/xmind.png">
 <meta property="og:image" content="http://example.com/photos/test4.png">
 <meta property="article:published_time" content="2022-04-26T04:42:52.000Z">
-<meta property="article:modified_time" content="2022-05-13T09:54:53.136Z">
+<meta property="article:modified_time" content="2022-05-13T10:06:47.696Z">
 <meta property="article:author" content="jiangyuhao">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="c++">
@@ -74,7 +74,7 @@
 			</ul>
 			<nav>
     <a>总文章数 48</a>
-    <a>总字数 <span class="post-count">31.5k</span></a>
+    <a>总字数 <span class="post-count">31.7k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -205,6 +205,7 @@
 <h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>初始化：只能在类外进行初始化<br>ex:<br>在A中有静态成员count，在类外进行初始化的格式为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int A::count=0;</span><br></pre></td></tr></table></figure>
 <h2 id="静态成员函数"><a href="#静态成员函数" class="headerlink" title="静态成员函数"></a>静态成员函数</h2><p>静态成员函数可以直接访问该类的静态数据成员和静态函数成员，访问非静态成员必须通过对象名。</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数不能被重载<br>析构函数可以被继承</p>
 <h1 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h1><p>1、友元关系是不能传递的<br>2、友元关系是单向的<br>3、友元关系是不能被继承的</p>
 <h1 id="常对象"><a href="#常对象" class="headerlink" title="常对象"></a>常对象</h1><p>常对象必须被初始化，而且不能够被更新<br>const是函数的一个组成部分，在函数的定义部分也要带有关键字const<br>常对象只能调用常函数<br>非常对象既可以调用常函数也可以调用非常函数，优先匹配非常函数</p>
 <p>常量可以对非常量赋值，但是非常量不能对常量赋值</p>
@@ -219,7 +220,8 @@
 <p>如果说异常在某类对象还没有构造完成时，那么由于这个对象还没有构造完，将不会调用这个对象的析构函数</p>
 <h1 id="多态性"><a href="#多态性" class="headerlink" title="多态性"></a>多态性</h1><h2 id="多态的实现方式"><a href="#多态的实现方式" class="headerlink" title="多态的实现方式"></a>多态的实现方式</h2><p>一、编译时多态<br>1.函数重载<br>2.运算符重载</p>
 <p>二、运行时多态<br>1.继承+虚函数</p>
-<h2 id="消除二义性的方法"><a href="#消除二义性的方法" class="headerlink" title="消除二义性的方法"></a>消除二义性的方法</h2><p>1.函数重载<br>2.多继承<br>3.虚基类</p>
+<h2 id="消除二义性的方法"><a href="#消除二义性的方法" class="headerlink" title="消除二义性的方法"></a>消除二义性的方法</h2><p>定义：在多继承中，父类有多个同名成员，或是有共同的基类，这时在派生类中访问这些成员可能会出现二义性。</p>
+<p>1.函数重载<br>2.多继承<br>3.虚基类</p>
 <h2 id="哪些函数不能被声明为虚函数"><a href="#哪些函数不能被声明为虚函数" class="headerlink" title="哪些函数不能被声明为虚函数"></a>哪些函数不能被声明为虚函数</h2><ol>
 <li>内联函数</li>
 <li>构造函数</li>
@@ -239,6 +241,7 @@
 <h4 id="必须重载为成员函数的运算符"><a href="#必须重载为成员函数的运算符" class="headerlink" title="必须重载为成员函数的运算符"></a>必须重载为成员函数的运算符</h4><p>= [] () -&gt;<br><img src="/photos/xmind.png"><br>‘=’运算符重载最后返回的应该是 *this。</p>
 <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><p>对象所占据的内存空间只包括数据成员，函数成员不在对象里面存在副本，对于一个指针成员，存放的也仅仅是它的大小，不包括给他分配的内存空间。</p>
 <p>更加权威的解释是<br>1.非静态成员变量的总和<br>2.加上编译器为了计算方便所作出的对齐处理<br>3.为了支持虚函数而产生的额外负担<br><img src="/photos/test4.png"><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Mr_kanger/article/details/110482868">相关链接</a></p>
+<h2 id="派生类和基类"><a href="#派生类和基类" class="headerlink" title="派生类和基类"></a>派生类和基类</h2><p>派生类包含基类中所有的数据成员<br>基类中的私有数据成员在内存空间上是被继承了的，但是在派生类中是不可见的并且是无法访问的</p>
 <h2 id="构造函数和复制构造函数"><a href="#构造函数和复制构造函数" class="headerlink" title="构造函数和复制构造函数"></a>构造函数和复制构造函数</h2><p>1.既不写复制构造函数也不写构造函数系统将会自动的提供这两个默认函数<br>2.如果说只写了一个复制构造函数，那么系统将不会提供默认构造函数<br>3.如果说写了默认构造函数而没有写复制构造函数，系统会自动的提供复制构造函数。</p>
 <h2 id="调用复制构造函数的情况"><a href="#调用复制构造函数的情况" class="headerlink" title="调用复制构造函数的情况"></a>调用复制构造函数的情况</h2><p>1.用一个对象去初始化另外的一个对象的时候<br>2.当类的对象作为函数的形参，当函数的形参和实参结合的时候<br>3.当类的对象作为函数的返回值的时候。</p>
 <p>需要注意的是，当我们用等号运算符‘=’去‘赋值’一个对象的时候，调用的是‘=’而不是赋值构造函数<br>在创建的时候用=，调用的是复制构造函数</p>
@@ -255,7 +258,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T&gt;</span><br><span class="line">T fun(T x,T y)&#123;<span class="built_in">return</span> x*y&#125;</span><br></pre></td></tr></table></figure>
 <p>调用fun(4,4.5)；一个int，一个double类型，将会导致无法确定T定成哪个类型</p>
 <p>类模板的调用必须要有模板实参，即使是说有默认值的情况下也要写个  &lt;&gt;<br>类模板的实参列表指的是不包括’&lt;&gt;’里面的东西</p>
-<h1 id="动态内存分配"><a href="#动态内存分配" class="headerlink" title="动态内存分配"></a>动态内存分配</h1><p>new 和 delete是操作符，不是一个函数。<br>new int（n）的意思是分配一个int大小的内存空间并且赋初值n<br>new int[n]的意思是创建n大小的int数组</p>
+<h1 id="动态内存分配"><a href="#动态内存分配" class="headerlink" title="动态内存分配"></a>动态内存分配</h1><p>new 最后分配的结果是一个地址，如果创建的是一个类，A&amp;a =*new B，在这里需要解引用。<br>new 和 delete是操作符，不是一个函数。<br>new int（n）的意思是分配一个int大小的内存空间并且赋初值n<br>new int[n]的意思是创建n大小的int数组</p>
 <h1 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h1><p>在编译时不发生控制转移，在编译时将函数插到向相应的位置、<br>当内联函数被调用时，内联函数在被调用出展开。</p>
 <h1 id="c-关键字"><a href="#c-关键字" class="headerlink" title="c++关键字"></a>c++关键字</h1><p>final不是关键字！！！！！是说明符<br>using class const</p>
 
@@ -568,34 +571,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">复习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数组</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -608,19 +583,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类和对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">复习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">访问控制和内部类</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">分组背包问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,7 +623,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
+                <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">分组背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,15 +643,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">完全背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">快慢指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">多重背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,11 +667,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">完全背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">快速排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">多重背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">线性DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +695,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">抽象和接口</a>
+                <a href="javascript:void(0)" class="js-tag color1">计数类DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,15 +703,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">线性DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">最长上升子序列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计数类DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,15 +715,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">树形DP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">滑动窗口</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">记忆化搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">树形DP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,23 +747,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">质数</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">继承和多态</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color2">状态压缩DP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,6 +764,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">作业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">质数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">高精度算法</a>
               </li>
             
             <div class="clearfix"></div>
