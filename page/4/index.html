@@ -63,8 +63,8 @@
 	        
 			</ul>
 			<nav>
-    <a>总文章数 53</a>
-    <a>总字数 <span class="post-count">34.3k</span></a>
+    <a>总文章数 54</a>
+    <a>总字数 <span class="post-count">34.5k</span></a>
 </nav>
 		</nav>
 		<nav class="header-smart-menu">
@@ -167,6 +167,99 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-有序数组的平方" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/22/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/">有序数组的平方</a>
+    </h1>
+  
+
+            <!-- 添加代码 -->
+    
+
+      </header>
+    
+
+
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">题目连接</a><br>&lt;！–more–&gt;<br>给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>这道题有两种做法，第一个是先计算，再排序。<br>第二种是双指针</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int length=nums.size();</span><br><span class="line">        vector&lt;int&gt; num(length);</span><br><span class="line">        int i=0,j=--length;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=j)</span><br><span class="line">        &#123;</span><br><span class="line">            int &amp;&amp;a=nums[i]*nums[i];</span><br><span class="line">            int &amp;&amp;b=nums[j]*nums[j];</span><br><span class="line">            <span class="keyword">if</span>(a&gt;=b)</span><br><span class="line">            &#123;</span><br><span class="line">                num[length--]=a;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                num[length--]=b;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> num;</span><br></pre></td></tr></table></figure>
+<p>这种做法和合并数组有点像，这道题的难点就在于存在负数可能使得他的平方大于一个正数的平方。然而对于这种做法来说，由于是从两边开始取值，因此排序方向是由大到小的。</p>
+
+      
+      
+        
+        
+          <div hidden="hidden"></div>
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二分查找</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/22/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/">展开全文qwq >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-类与对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -940,103 +1033,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/01/%E7%BA%A6%E6%95%B0%E7%9A%84%E5%92%8C/">展开全文qwq >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-约数的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/01/%E7%BA%A6%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/">约数的个数</a>
-    </h1>
-  
-
-            <!-- 添加代码 -->
-    
-
-      </header>
-    
-
-
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于任意的一个数N，在保证它的约数P最简的情况下可以写成</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N=P1^a1+P2^a2+p3^a3+...+Pn^an</span><br></pre></td></tr></table></figure>
-<p>我们通过将P1，P2…Pn进行不同个数的搭配即可得到不同的公约数，每个P的总数取决与指数a的数量，但是必须还要在原有的a的数量上加1，应为P的可以没有。由乘法原理可知约数的数量为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res=(a1+1)(a2+1)(a3+1)···(an+1)</span><br></pre></td></tr></table></figure>
-        
-      
-      
-        
-        
-          <div hidden="hidden"></div>
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数学知识</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">约数</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">约数相关</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/01/%E7%BA%A6%E6%95%B0%E7%9A%84%E4%B8%AA%E6%95%B0/">展开全文qwq >></a>
         </p>
       
 
